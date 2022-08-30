@@ -1,16 +1,24 @@
-
 * {
   position: relative;
   width: 100%;
   height: 1024px;
+  margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
   
-  background: #D7D688;
+  background-image: linear-gradient(to right top, #d7d688, #efc685, #fdb790, #ffaba3, #f6a5b8);
 }
+
+ html {
+	height: 100%;
+}
+
+
 
 body{
   position: absolute;
   width: 100%;
-  height: 110px;
+  height: 100%;
   left: 0px;
   top: 0px;
 
