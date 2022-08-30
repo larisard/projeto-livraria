@@ -84,7 +84,16 @@
 					</div>
 
 
-<div id='recaptcha' class="g-recaptcha" data-sitekey="6LeXm78hAAAAAKkV7iDX4Y7ImpDR6uspABZdolum" data-callback="sendForm" data-size="invisible"></div>
+					<script>
+						function onSubmit(token) {
+						  document.getElementById("demo-form").submit();
+						}
+					  </script>
+					
+					<button class="g-recaptcha" 
+        data-sitekey="6LdRrL8hAAAAAHNtJ_h71yYtMFiVMwOXtE0wsNhx" 
+        data-callback='onSubmit' 
+        data-action='submit'>Submit</button>
 
 					<div class="txt1 text-center p-t-54 p-b-20">
 						<span>
@@ -103,7 +112,7 @@
 						  });
 						  google.accounts.id.renderButton(
 							document.getElementById("buttonDiv"),
-							{ theme: "outline", size: "large" }  // customization attributes
+							{ theme: "outline", size: "medium" }  // customization attributes
 						  );
 						  google.accounts.id.prompt(); // also display the One Tap dialog
 						}
@@ -128,21 +137,7 @@
 
 	<div id="dropDownSelect1"></div>
 	
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
+
 	<script src="login.js"></script>
 
 	<script type="text/javascript">
