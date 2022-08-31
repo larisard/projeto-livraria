@@ -1,125 +1,43 @@
-* {
-  position: relative;
-  width: 100%;
-  height: 1024px;
-  margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
-  
+html {
+	height: 100%;
   background-image: linear-gradient(to right top, #d7d688, #efc685, #fdb790, #ffaba3, #f6a5b8);
 }
 
- html {
-	height: 100%;
-}
-
-
-
-body{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-
-}
-header{
-  background:  #FFFFFF;
-  position: absolute;
+.header{
+  position: fixed;
   width: 100%;
   height: 112px;
-  left: 0px;
-  top: 0px;
-  
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 4px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+.header-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo{
-position: absolute;
-width: 467px;
-height: 112px;
-left: 0px;
-top: 0px;
+.header-right a { 
+  padding: 10px;
+  margin-right: 15px;
+  color: black;
+  text-decoration: none;
 }
 
-.login {
-  position: absolute;
-width: 57px;
-height: 27px;
-left: 959px;
-top: 52px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 27px;
-color: #000000;
-background-color: #FFFFFF;
-text-align: center;
-}
-
-.cadastro{
-  position: absolute;
-  width: 95px;
-  height: 27px;
-  left: 1066px;
-  top: 52px;
-  
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 27px;
-  background-color: #FFFFFF;
-  text-align: center;
-
-  /* identical to box height */
-  
-  
-  color: #000000;
-  
-}
-
-.carrinho{
-  position: absolute;
-  width: 62px;
-  height: 27px;
-  left: 1198px;
-  top: 52px;
-  
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 27px;
-  /* identical to box height */
-  
-  background-color: #FFFFFF;
-  text-align: center;
-  color: #000000;
-}
-.sobre{
-  position: absolute;
-  width: 62px;
-  height: 27px;
-  left: 1310px;
-  top: 52px;
-  
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 27px;
-  /* identical to box height */
-  background-color: #FFFFFF;
-  text-align: center;
-  color: #000000;
-}
-
-a:hover {
+.header-right a:hover{ 
   filter: brightness(1.2);
   border-radius: 5px;
   transition: 0.4s;
   background-color: #F6A5B8;
 }
+
+
+.header img{
+  width: 467px ;
+  height: 112px;}
