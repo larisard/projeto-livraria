@@ -4,9 +4,9 @@
 //     
 //     axios.get(URL_GET)
 // }
-
- const URL_LOGIN = "http://localhost:4000/signin"
- const URL_SIGNIN = "http://localhost:4000/signup"
+ const APP_URL =  "http://localhost:5000"
+ const URL_LOGIN = `${APP_URL}/signin`
+ const URL_SIGNIN = `${APP_URL}/signup`
  const URL_GET_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=coraline"
 
 function hideSection(hide,show, alsoHide){
