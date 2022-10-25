@@ -1,78 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/util.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="apple-touch-icon"
-      sizes="57x57"
-      href="img/apple-icon-57x57.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="60x60"
-      href="img/apple-icon-60x60.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="img/apple-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="img/apple-icon-76x76.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="img/apple-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="img/apple-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="img/apple-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="img/apple-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="img/apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="img/android-icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="img/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="img/favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="img/favicon-16x16.png"
-    />
+
     <link rel="manifest" href="img/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png" />
@@ -81,18 +16,182 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="header">
+
+    <header class="header-books" >
       <a href="index.html"
         ><img class="logo" src="img/logo.png" alt="Página Inicial"
       /></a>
 
       <div class="header-right">
-        <a class="login" href="login/login.html">Login</a>
-        <a class="cadastro" href="cadastro/cadastro.html">Cadastro</a>
+        <a class="login-header" onclick="hideSection(`cadastro`, `login`, `books`)">Login</a>
+        <a class="cadastro-header"onclick="hideSection(`login`, `cadastro`, `books`)">Cadastro</a>
         <a class="busca" href="busca.html">Busca</a>
         <a class="carrinho" href="carrinho.html">Carrinho</a>
         <a class="sobre" href="sobre.html">Sobre</a>
       </div>
-    </div>
+    </header>
+
+    <section class="login">
+      <div
+        class="container-login100"
+        style="
+          background-image: linear-gradient(
+            to right top,
+            #d7d688,
+            #efc685,
+            #fdb790,
+            #ffaba3,
+            #f6a5b8
+          );
+        "
+      >
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+          <span class="login100-form-title p-b-49"> Login </span>
+
+          <div
+            class="wrap-input100 validate-input m-b-23"
+            data-validate="O nome do usuário é obrigatório"
+          >
+            <span class="label-input100">Nome do Usuário</span>
+            <input
+              class="input100"
+              name="username"
+              placeholder="Insira o seu nome de usuário"
+            />
+            <span class="focus-input100" data-symbol="&#xf206;"></span>
+          </div>
+
+          <div
+            class="wrap-input100 validate-input"
+            data-validate="A senha é obrigatória"
+          >
+            <span class="label-input100">Senha</span>
+            <input
+              class="input100"
+              type="password"
+              name="pass"
+              placeholder="Insira sua senha"
+            />
+            <span class="focus-input100" data-symbol="&#xf190;"></span>
+          </div>
+
+          <div class="text-right p-t-8 p-b-31"></div>
+
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+
+              <button class="login100-form-btn" onclick="login()">Login</button>
+            </div>
+          </div>
+
+          <div id="buttonDiv"></div>
+
+          <div class="flex-col-c p-t-155">
+            <span class="txt1 p-b-17"> Ainda não possui cadastro? </span>
+
+            <a onclick="hideSection(`login`,`cadastro`, null)" class="txt2">
+              Cadastre-se
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cadastro hidden">
+      <div
+        class="container-login100"
+        style="
+          background-image: linear-gradient(
+            to right top,
+            #d7d688,
+            #efc685,
+            #fdb790,
+            #ffaba3,
+            #f6a5b8
+          );
+        "
+      >
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+          <span class="login100-form-title p-b-49"> SignIn </span>
+
+          <div
+            class="wrap-input100 validate-input m-b-23"
+            data-validate="O nome do usuário é obrigatório"
+          >
+            <span class="label-input100">Nome do Usuário</span>
+            <input
+              class="input100"
+              type="text"
+              name="username"
+              placeholder="Insira o seu nome de usuário"
+            />
+            <span class="focus-input100" data-symbol="&#xf206;"></span>
+          </div>
+
+          <div
+            class="wrap-input100 validate-input"
+            data-validate="A senha é obrigatória"
+          >
+            <span class="label-input100">Senha</span>
+            <input
+              class="input100"
+              type="password"
+              name="pass"
+              placeholder="Insira sua senha"
+            />
+            <span class="focus-input100" data-symbol="&#xf190;"></span>
+          </div>
+
+          <div
+            class="wrap-input100 validate-input"
+            data-validate="A senha é obrigatória"
+          >
+            <span class="label-input100">Confirmar Senha</span>
+            <input
+              class="input100"
+              type="password"
+              name="pass"
+              placeholder="Insira sua senha"
+            />
+            <span class="focus-input100" data-symbol="&#xf190;"></span>
+          </div>
+
+          <div class="text-right p-t-8 p-b-31">
+            <a class="txt2"></a>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+
+              <button
+                onclick="hideSection(`cadastro`,`login`, null)"
+                class="login100-form-btn"
+              >
+                Signin
+              </button>
+            </div>
+          </div>
+
+          <div id="buttonDiv"></div>
+
+          <div class="flex-col-c p-t-155">
+            <span class="txt1 p-b-17">Já possui cadastro? </span>
+
+            <a onclick="hideSection(`cadastro`,`login`)" class="txt2">
+              Entre
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="books hidden ">
+      <h1>I'm a book list</h1>
+      <h1>I'm a book list</h1>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
