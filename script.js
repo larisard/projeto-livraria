@@ -4,7 +4,7 @@
 //     
 //     axios.get(URL_GET)
 // }
- const APP_URL =  "http://localhost:5000"
+ const APP_URL =  "https://livraria-janeausten.herokuapp.com"
  const URL_LOGIN = `${APP_URL}/signin`
  const URL_SIGNIN = `${APP_URL}/signup`
  const URL_GET_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=coraline"
