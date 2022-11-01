@@ -16,15 +16,22 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-
-    <header class="header-books" >
+    <header class="header-books">
       <a href="index.html"
         ><img class="logo" src="img/logo.png" alt="Página Inicial"
       /></a>
 
       <div class="header-right">
-        <a class="login-header" onclick="hideSection(`cadastro`, `login`, `books`)">Login</a>
-        <a class="cadastro-header"onclick="hideSection(`login`, `cadastro`, `books`)">Cadastro</a>
+        <a
+          class="login-header"
+          onclick="hideSection(`cadastro`, `login`, `books`)"
+          >Login</a
+        >
+        <a
+          class="cadastro-header"
+          onclick="hideSection(`login`, `cadastro`, `books`)"
+          >Cadastro</a
+        >
         <a class="busca" href="busca.html">Busca</a>
         <a class="carrinho" href="carrinho.html">Carrinho</a>
         <a class="sobre" href="sobre.html">Sobre</a>
@@ -81,7 +88,9 @@
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
 
-              <button class="login100-form-btn" onclick="login()">Login</button>
+              <button class="login100-form-btn" onclick="login('login')">
+                Login
+              </button>
             </div>
           </div>
 
@@ -90,7 +99,7 @@
           <div class="flex-col-c p-t-155">
             <span class="txt1 p-b-17"> Ainda não possui cadastro? </span>
 
-            <a onclick="hideSection(`login`,`cadastro`, null)" class="txt2">
+            <a onclick="hideSection(`login`,`cadastro`, 'books')" class="txt2">
               Cadastre-se
             </a>
           </div>
@@ -113,7 +122,7 @@
         "
       >
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-          <span class="login100-form-title p-b-49"> SignIn </span>
+          <span class="login100-form-title p-b-49"> SignUp </span>
 
           <div
             class="wrap-input100 validate-input m-b-23"
@@ -165,11 +174,8 @@
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
 
-              <button
-                onclick="hideSection(`cadastro`,`login`, null)"
-                class="login100-form-btn"
-              >
-                Signin
+              <button onclick="signup('cadastro')" class="login100-form-btn">
+                SignUp
               </button>
             </div>
           </div>
@@ -179,19 +185,36 @@
           <div class="flex-col-c p-t-155">
             <span class="txt1 p-b-17">Já possui cadastro? </span>
 
-            <a onclick="hideSection(`cadastro`,`login`)" class="txt2">
+            <a onclick="hideSection(`cadastro`,`login`, 'books')" class="txt2">
               Entre
             </a>
           </div>
         </div>
       </div>
     </section>
-    <section class="books hidden ">
-      <h1>I'm a book list</h1>
-      <h1>I'm a book list</h1>
+    <section class="books hidden">
+      <!-- <div class="search-box" >  </div> -->
+      <div class="search" >  
+        <input
+        type="text"
+        placeholder="procure por um título"
+        class="search-box"
+        name="book-title"
+    
+        
+        />
+        <div class="search-icon"     onclick="displayBooks()" > <ion-icon name="search-outline"></ion-icon> </div>
+    </div>
+      <div class="book-container" >
+     
+      </div>
+   
     </section>
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   </body>
 </html>
