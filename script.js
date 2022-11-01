@@ -10,8 +10,8 @@
 // }
 const APP_URL = "https://livraria-janeausten.herokuapp.com";
 const URL_LOCAL = "http://localhost:4000";
-const URL_LOGIN = `${URL_LOCAL}/signin`;
-const URL_SIGNUP = `${URL_LOCAL}/signup`;
+const URL_LOGIN = `${APP_URL}/signin`;
+const URL_SIGNUP = `${APP_URL}/signup`;
 const URL_GET_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=coraline";
 let books = [];
 
@@ -112,7 +112,6 @@ function renderbook(bookBox){
   for(let i=0; i<books.length; i++) {
     console.log("to no looping ",books[i].volumeInfo.title, i)
     bookBox.innerHTML+=`
-   <button id="myBtn">Open Modal</button>
    <div class="book-single" >
    <p> ${ books[i].volumeInfo.title} </p>
     <img src="${books[i].volumeInfo.imageLinks.smallThumbnail}" alt="">
