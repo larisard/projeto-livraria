@@ -53,7 +53,58 @@ header{
 }
 
 .hidden{
-  display: none;
+  display: none !important;
 }
 
+
+.books{
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+}
+.search{
+  width: 600px;
+  height: 30px;
+  display: flex;
+  align-self: center;
+  border-radius: 8px;
+  border: 1px #696969 solid;
+  padding:10px;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-box{
+  
+}
+
+.book-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.book-single{
+  width: 150px;
+  height: auto;
+  padding-bottom: 10px;
+  background-color: #fff;
+  margin:5px 5px;
+  border: #696969 solid 1px;
+  border-radius: 3px;
+  /* background-image: ; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.book-single img{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 160px;
+}
 
