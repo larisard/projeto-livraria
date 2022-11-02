@@ -90,10 +90,10 @@ function displayBooks() {
  
 }
 function callInput(booktitle,booktitleLast,bookBox) {
-    
-  console.log("um titulo ", booktitle);
-  console.log("book last ", booktitleLast)
-  if(booktitle !== booktitleLast)
+  console.log(booktitle)
+    booktitle =  booktitle.split(" ").join("+")
+    console.log(booktitle)
+  
     axios
     .get(`https://www.googleapis.com/books/v1/volumes?q=${booktitle}&maxResults=12&startIndex=0`)
     .then((res) => {
@@ -114,10 +114,33 @@ function renderbook(bookBox){
     bookBox.innerHTML+=`
    <div class="book-single" >
    <p> ${ books[i].volumeInfo.title} </p>
-    <img src="${books[i].volumeInfo.imageLinks.smallThumbnail}" alt="">
+    <img onclick="openModal('${ books[i].volumeInfo.description}', '${books[i].volumeInfo.imageLinks.smallThumbnail}')" src="${books[i].volumeInfo.imageLinks.smallThumbnail}" alt="">
    </div>
     
   `
  }
 }
 
+function openModal( description, cover){
+  const modal = document.querySelector('.modal-container')
+  hideSection('books', 'modal-container', null)
+  modal.classList.add('fade')
+  modal.innerHTML = `
+  <div class = "modal" id = "modal" >
+  <img src = "${cover}" >
+  <p>
+  ${description}
+  </p>
+  <button onclick = closeModal() class="close-modal">close</button>
+  </div>
+  `
+
+
+}
+
+function closeModal(){
+  hideSection('modal-container', 'books', null)
+  // const books = document.querySelector('.books')
+  // books.classList.remove('fade')
+ 
+}

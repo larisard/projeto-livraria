@@ -15,7 +15,7 @@
     <title>Livraria Jane Austen</title>
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body>
+  <body >
     <header class="header-books">
       <a href="index.html"
         ><img class="logo" src="img/logo.png" alt="Página Inicial"
@@ -194,27 +194,28 @@
     </section>
     <section class="books hidden">
       <!-- <div class="search-box" >  </div> -->
-      <div class="search" >  
+      <div class="search">
         <input
-        type="text"
-        placeholder="procure por um título"
-        class="search-box"
-        name="book-title"
-    
-        
+          type="text"
+          placeholder="procure por um título"
+          class="search-box"
+          name="book-title"
         />
-        <div class="search-icon"     onclick="displayBooks()" > <ion-icon name="search-outline"></ion-icon> </div>
-    </div>
-      <div class="book-container" >
-     
+        <div class="search-icon" onclick="displayBooks()">
+          <ion-icon name="search-outline"></ion-icon>
+        </div>
       </div>
-   
+      <div class="book-container"></div>
     </section>
-
-    
+    <div class="modal-container hidden">
+     
+    </div> 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
   </body>
 </html>
