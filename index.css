@@ -107,6 +107,9 @@ header{
 
   
 }
+#cover {
+  background-color: aqua;
+}
 
 .book-single p{
   overflow: hidden;

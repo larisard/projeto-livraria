@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="pt-br">
   <head>
     <title>Login</title>
@@ -24,16 +24,13 @@
       <div class="header-right">
         <a
           class="login-header"
-          onclick="hideSection(`cadastro`, `login`, `books`)"
           >Login</a
         >
         <a
           class="cadastro-header"
-          onclick="hideSection(`login`, `cadastro`, `books`)"
           >Cadastro</a
         >
-        <a class="busca" href="busca.html">Busca</a>
-        <a class="carrinho" href="carrinho.html">Carrinho</a>
+       
         <a class="sobre" href="sobre.html">Sobre</a>
       </div>
     </header>
@@ -88,7 +85,7 @@
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
 
-              <button class="login100-form-btn" onclick="login('login')">
+              <button id="log" class="login100-form-btn">
                 Login
               </button>
             </div>
@@ -99,7 +96,7 @@
           <div class="flex-col-c p-t-155">
             <span class="txt1 p-b-17"> Ainda não possui cadastro? </span>
 
-            <a onclick="hideSection(`login`,`cadastro`, 'books')" class="txt2">
+            <a id="cadastro-bottom" class="txt2">
               Cadastre-se
             </a>
           </div>
@@ -174,7 +171,7 @@
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
 
-              <button onclick="signup('cadastro')" class="login100-form-btn">
+              <button id="cad" class="login100-form-btn">
                 SignUp
               </button>
             </div>
@@ -185,7 +182,7 @@
           <div class="flex-col-c p-t-155">
             <span class="txt1 p-b-17">Já possui cadastro? </span>
 
-            <a onclick="hideSection(`cadastro`,`login`, 'books')" class="txt2">
+            <a id="login-bottom" class="txt2">
               Entre
             </a>
           </div>
@@ -201,7 +198,7 @@
           class="search-box"
           name="book-title"
         />
-        <div class="search-icon" onclick="displayBooks()">
+        <div class="search-icon" >
           <ion-icon name="search-outline"></ion-icon>
         </div>
       </div>
@@ -210,12 +207,11 @@
     <div class="modal-container hidden">
      
     </div> 
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>
 </html>
