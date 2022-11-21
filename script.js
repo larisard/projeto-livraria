@@ -61,7 +61,7 @@ window.onload = () => {
 class Pessoa {
   constructor(nome, senha, tipo) {
     this.nome = nome[tipo].value;
-    this.senha = senha[tipo].value;
+    this.senha = senha;
     this.tipo = tipo
   }
 
@@ -88,7 +88,8 @@ class Pessoa {
   }
   cadastro(screen) {
     let confirmPassword = this.senha[2].value;
-    const body = { name: this.nome, password: this.senha, confirmPassword };
+    console.log("conf", confirmPassword)
+    const body = { name: this.nome, password: this.senha[this.tipo].value, confirmPassword };
     axios
       .post(URL_SIGNUP, body)
       .then((response) => {
