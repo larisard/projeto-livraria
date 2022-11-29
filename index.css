@@ -62,7 +62,7 @@ header{
 }
 .search{
   width: 600px;
-  height: 30px;
+  height: 40px;
   display: flex;
   align-self: center;
   border-radius: 8px;
@@ -124,6 +124,11 @@ header{
   text-align: center;
 }
 
+.forget{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
 .fade{
   position: fixed;
   top: 0;
@@ -153,6 +158,7 @@ header{
 #modal p{
   padding-left: 20px;
   text-align: justify;
+  
 }
 .close-modal{
 

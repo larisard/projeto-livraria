@@ -28,6 +28,7 @@ window.onload = () => {
   cadastroBottom.addEventListener("click", ()=>{
     hideSection(`login`,`cadastro`, 'books','sobre')
   })
+
   const cadastroHeader = document.querySelector(".cadastro-header")
   cadastroHeader.addEventListener("click", ()=>{
     hideSection(`login`, `cadastro`, `books`,`sobre`)
@@ -55,6 +56,9 @@ window.onload = () => {
     );
     pessoa.chamada()
   })
+
+
+
   const cadastroBtn = document.querySelector("#cad")
   cadastroBtn.addEventListener("click", ()=>{
     const pessoa = new Pessoa(
@@ -180,7 +184,7 @@ class Books {
     for (let i = 0; i < books.length; i++) {
       bookBox.innerHTML += `
      <div class="book-single" >
-     <p center> ${books[i].volumeInfo.title} </p>
+     <p><u> ${books[i].volumeInfo.title} </u></p>
       <img  src="${books[i].volumeInfo.imageLinks.smallThumbnail}" alt="">
      </div>
       
