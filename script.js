@@ -5,9 +5,13 @@ const URL_SIGNUP = `${APP_URL}/signup`;
 const URL_GET_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=coraline";
 let books = [];
 
-function hideSection(hide, show, alsoHide) {
+function hideSection(hide, show, alsoHide, alsoHide2) {
   if (alsoHide != null) {
     const section = document.querySelector(`.${alsoHide}`);
+    section.classList.add("hidden");
+  }
+  if (alsoHide2 != null) {
+    const section = document.querySelector(`.${alsoHide2}`);
     section.classList.add("hidden");
   }
   const sectionLogin = document.querySelector(`.${hide}`);
@@ -19,19 +23,23 @@ function hideSection(hide, show, alsoHide) {
 window.onload = () => {
   const loginBottom = document.querySelector("#login-bottom")
   loginBottom.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`login`, 'books')
+    hideSection(`cadastro`,`login`, 'books','sobre')
   })
   const cadastroBottom = document.querySelector("#cadastro-bottom")
   cadastroBottom.addEventListener("click", ()=>{
-    hideSection(`login`,`cadastro`, 'books')
+    hideSection(`login`,`cadastro`, 'books','sobre')
   })
   const cadastroHeader = document.querySelector(".cadastro-header")
   cadastroHeader.addEventListener("click", ()=>{
-    hideSection(`login`, `cadastro`, `books`)
+    hideSection(`login`, `cadastro`, `books`,`sobre`)
   })
   const loginHeader = document.querySelector(".login-header")
   loginHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`, `login`, `books`)
+    hideSection(`cadastro`, `login`, `books`,`sobre`)
+  })
+  const sobreHeader = document.querySelector(".sobre-header")
+  loginHeader.addEventListener("click", ()=>{
+    hideSection(`cadastro`,`sobre`,`login`, `books`)
   })
   const loginBtn = document.querySelector("#log")
   loginBtn.addEventListener("click", ()=>{

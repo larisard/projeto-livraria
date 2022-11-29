@@ -417,6 +417,16 @@ iframe {
 
 
 /*//////////////////////////////////////////////////////////////////
+[ sobre ]*/
+img{
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center }
+
+
+
+/*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/
 
 @media (max-width: 576px) {
