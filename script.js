@@ -1,7 +1,7 @@
 const APP_URL = 'https://livraria-janeausten.herokuapp.com'
 const URL_LOCAL = "http://localhost:4000";
-const URL_LOGIN = `${APP_URL}/signin`;
-const URL_SIGNUP = `${APP_URL}/signup`;
+const URL_LOGIN = `${URL_LOCAL}/signin`;
+const URL_SIGNUP = `${URL_LOCAL}/signup`;
 let books = [];
 
 function hideSection(hide, show, alsoHide, alsoHide2) {
@@ -78,8 +78,8 @@ window.onload = () => {
 class Pessoa {
   constructor(nome, senha, tipo) {
     this.nome = nome[tipo].value;
-    this.senha = senha;
-    this.tipo = tipo
+    this.senha = senha[tipo].value;
+    this.tipo = tipo;
   }
 
 
@@ -95,12 +95,14 @@ class Pessoa {
     axios
       .post(URL_LOGIN, body)
       .then((response) => {
+        console.log("login")
         const books= new Books()
         books.getBooks(screen)
       })
       .catch((err) => {
         alert(err.response.data);
         console.log(err.response);
+        console.log("login erro")
       });
   }
   cadastro(screen) {
