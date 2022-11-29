@@ -2,7 +2,6 @@ const APP_URL = "https://livraria-janeausten.herokuapp.com";
 const URL_LOCAL = "http://localhost:5500";
 const URL_LOGIN = `${APP_URL}/signin`;
 const URL_SIGNUP = `${APP_URL}/signup`;
-const URL_GET_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=coraline";
 let books = [];
 
 function hideSection(hide, show, alsoHide, alsoHide2) {
@@ -127,12 +126,11 @@ class Modal{
     modal.innerHTML = `
     <div class = "modal" id = "modal" >
     <img src = "${cover}" >
-    <br>
     <p>
     ${description}
     </p>
-    <br>
-    <button class="close-modal">close</button>
+    <p>
+    <button class="close-modal">X</button></p>
     </div>
     `;
 

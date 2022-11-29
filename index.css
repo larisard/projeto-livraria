@@ -74,6 +74,12 @@ header{
   align-items: center;
 }
 
+.search-box{
+  width: 600px;
+  background-color: #fff;
+
+}
+
 .book-container{
   display: flex;
   justify-content: center;
@@ -83,7 +89,7 @@ header{
 }
 
 .book-single{
-  width: 400px;
+  width: 300px;
  height: 250px;
   padding-bottom: 10px;
   background-color: #fff;
@@ -95,6 +101,7 @@ header{
   flex-direction: column;
   align-items: center;
   object-fit: cover;
+
 }
 
 .book-single img{
@@ -114,6 +121,7 @@ header{
   overflow: hidden;
   font-weight: 600;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .fade{
@@ -134,30 +142,41 @@ header{
   transform: translate(-50%, -50%);
   background-color: #fff;
   width: 500px;
+  max-height: 700px;
   border-radius: 8px;
   padding: 10px;
   display: flex;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  overflow: scroll;
+
 }
 #modal p{
   padding-left: 20px;
+  text-align: justify;
 }
 .close-modal{
 
-  width: 80px;
-  height: 30px;
+  width: 40px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
   align-self:flex-end;
+  margin-top: auto;
+  background-color: #F6A5B8;
+  border-radius: 5px;
+  border-color: #efc685;
+
+
 }
+
 
 .close-modal:hover {
   filter: brightness(1.2);
   border-radius: 5px;
   transition: 0.4s;
-  background-color: #F6A5B8;
+  background-color: #d7d688;
 }
 
 #modal img{
@@ -171,5 +190,6 @@ header{
 .modal-container {
   width: 100vw;
   height: 100vh;
+  
 
 }
