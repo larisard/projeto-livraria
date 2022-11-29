@@ -83,8 +83,8 @@ header{
 }
 
 .book-single{
-  width: 150px;
-  max-height: 200px;
+  width: 400px;
+ height: 250px;
   padding-bottom: 10px;
   background-color: #fff;
   margin:5px 5px;
@@ -104,7 +104,6 @@ header{
   width: 100px;
   height: 150px;
   cursor: pointer;
-
   
 }
 #cover {
@@ -114,6 +113,7 @@ header{
 .book-single p{
   overflow: hidden;
   font-weight: 600;
+  margin-bottom: 30px;
 }
 
 .fade{

@@ -1,5 +1,5 @@
 const APP_URL = "https://livraria-janeausten.herokuapp.com";
-const URL_LOCAL = "http://localhost:4000";
+const URL_LOCAL = "http://localhost:5500";
 const URL_LOGIN = `${APP_URL}/signin`;
 const URL_SIGNUP = `${APP_URL}/signup`;
 const URL_GET_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=coraline";
@@ -127,9 +127,11 @@ class Modal{
     modal.innerHTML = `
     <div class = "modal" id = "modal" >
     <img src = "${cover}" >
+    <br>
     <p>
     ${description}
     </p>
+    <br>
     <button class="close-modal">close</button>
     </div>
     `;
@@ -180,7 +182,7 @@ class Books {
     for (let i = 0; i < books.length; i++) {
       bookBox.innerHTML += `
      <div class="book-single" >
-     <p> ${books[i].volumeInfo.title} </p>
+     <p center> ${books[i].volumeInfo.title} </p>
       <img  src="${books[i].volumeInfo.imageLinks.smallThumbnail}" alt="">
      </div>
       
