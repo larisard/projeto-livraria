@@ -1,5 +1,5 @@
-const APP_URL = "https://livraria-janeausten.herokuapp.com";
-const URL_LOCAL = "http://localhost:5500";
+const APP_URL = 'https://livraria-janeausten.herokuapp.com'
+const URL_LOCAL = "http://localhost:4000";
 const URL_LOGIN = `${APP_URL}/signin`;
 const URL_SIGNUP = `${APP_URL}/signup`;
 let books = [];
