@@ -38,9 +38,15 @@ window.onload = () => {
     hideSection(`cadastro`, `login`, `books`,`sobre`)
   })
   const sobreHeader = document.querySelector(".sobre-header")
-  loginHeader.addEventListener("click", ()=>{
+  sobreHeader.addEventListener("click", ()=>{
     hideSection(`cadastro`,`sobre`,`login`, `books`)
   })
+  const booksHeader = document.querySelector(".books-header")
+  booksHeader.addEventListener("click", ()=>{
+    hideSection(`cadastro`,`books`,`login`, `sobre`)
+  })
+  
+  
   const loginBtn = document.querySelector("#log")
   loginBtn.addEventListener("click", ()=>{
     const pessoa = new Pessoa(
