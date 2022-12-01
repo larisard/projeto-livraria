@@ -27,11 +27,6 @@ function hideSection(hide, show, alsoHide, alsoHide2, alsoHide3, alsoHide4) {
 }
 
 window.onload = () => {
-  const loginBottom = document.querySelector("#login-bottom")
-  loginBottom.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`consulta`, 'books','sobre',`login`,`cadastro_livro`)
-  })
-
   const cadastroBottom = document.querySelector("#cadastro-bottom")
   cadastroBottom.addEventListener("click", ()=>{
     hideSection(`login`,`cadastro`, 'books','sobre',`consulta`,`cadastro_livro`)
@@ -50,11 +45,6 @@ window.onload = () => {
   const booksHeader = document.querySelector(".books-header")
   booksHeader.addEventListener("click", ()=>{
     hideSection(`cadastro`,`books`,`login`, `sobre`,`consulta`, `cadastro_livro`)
-  })
-
-  const consultaHeader = document.querySelector(".consulta-header")
- consultaHeader.addEventListener("click", ()=>{
-    hideSection(`login`, `consulta`, `books`,`sobre`)
   })
 
   const sobreHeader = document.querySelector(".sobre-header")
@@ -84,13 +74,23 @@ window.onload = () => {
       1
     );
     pessoa.chamada()
+
+    const cadastroLivroBtn = document.querySelector("#cad-book")
+    cadastroLivroBtn.addEventListener("click", ()=>{
+      const pessoa = new Livro(
+        document.getElementsByName("ibsn"),
+        document.getElementsByName("titulo"),
+        document.getElementsByName("autor"),
+        document.getElementsByName("descricao"),
+        document.getElementsByName("edicao"),
+        document.getElementsByName("editora"),
+        document.getElementsByName("valor"),
+        document.getElementsByName("quantidade")
+      );
+      livro.chamada()
+    })
   })
 
-  const searchBtn = document.querySelector(".search-icon")
-  searchBtn.addEventListener("click", ()=>{
-    const books = new Books()
-    books.displayBooks()
-  } )
 };
 
 class Pessoa {
@@ -116,8 +116,7 @@ class Pessoa {
       .post(URL_LOGIN, body)
       .then((response) => {
         console.log("login")
-        const books= new Books()
-        books.getBooks(screen)
+        hideSection(`cadastro`,`consulta`, 'books','sobre',`login`,`cadastro_livro`)
       })
       .catch((err) => {
         alert(err.response.data);
@@ -132,8 +131,7 @@ class Pessoa {
     axios
       .post(URL_SIGNUP, body)
       .then((response) => {
-        const books= new Books()
-        books.getBooks(screen)
+        hideSection(`cadastro`,`login`, 'books','sobre',`consulta`,`cadastro_livro`)
       })
       .catch((err) => {
         alert(err.response.data);
@@ -142,37 +140,22 @@ class Pessoa {
   }
 }
 
+//tela de busca, precisa pegar livros já cadastrados e renderizar na tela
 
-class Modal{
-  constructor(){}
-  openModal(description, cover) {
-    const modal = document.querySelector(".modal-container");
-    hideSection("books", "modal-container", null);
-    modal.classList.add("fade");
-    modal.innerHTML = `
-    <div class = "modal" id = "modal" >
-    <img src = "${cover}" >
-    <p>
-    ${description}
-    </p>
-    <p>
-    <button class="close-modal">X</button></p>
-    </div>
-    `;
 
-    let btn = document.querySelector(".close-modal")
-    btn.addEventListener("click", ()=>{
-      hideSection("modal-container", "books", null);
-    })
+class Livro {
+  constructor(isbn, titulo, autor, descricao, edicao, editora, valor, quantidade) {
+    this.isbn = isbn.value;
+    this.titulo = titulo.value;
+    this.autor = autor.value;
+    this.descricao = descricao.value;
+    this.edicao = edicao.value;
+    this.editora = editora.value;
+    this.valor = valor.value;
+    this.quantidade = quantidade.value
   }
 
-}
-
-class Books {
-  constructor(){
-   
-  }
-  getBooks(screen) {
+  getBusca(screen) {
     if (screen == "cadastro") {
       hideSection("cadastro", "login", "books");
       return;

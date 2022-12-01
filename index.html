@@ -30,10 +30,9 @@
     <a href="index.html"><img class="logo" src="img/logo.png" alt="Página Inicial" /></a>
 
     <div class="header-right">
-      <a class="login-header">Login</a>
+      <a class="login-header">Usuário</a>
       <a class="cadastro_livro-header">Cadastrar Livros</a>
       <a class="books-header"> Busca</a>
-      <a class="consulta-header">Consulta</a>
       <a class="sobre-header">Sobre</a>
     </div>
   </header>
@@ -53,13 +52,13 @@
         <span class="login100-form-title p-b-49"> Login </span>
 
         <div class="wrap-input100 validate-input m-b-23" data-validate="O nome do usuário é obrigatório">
-          <span class="label-input100">Nome do Usuário</span>
+          <span class="label-input100">Nome do Usuário:</span>
           <input class="input100" name="username" placeholder="Insira o seu nome de usuário" />
           <span class="focus-input100" data-symbol="&#xf206;"></span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="A senha é obrigatória">
-          <span class="label-input100">Senha</span>
+          <span class="label-input100">Senha:</span>
           <input class="input100" type="password" name="pass" placeholder="Insira sua senha" />
           <span class="focus-input100" data-symbol="&#xf190;"></span>
         </div>
@@ -159,14 +158,6 @@
   </section>
 
   <section class="books hidden">
-    <!-- <div class="search-box" >  </div> -->
-    <div class="search">
-      <input type="text" placeholder="digite o nome do livro desejado..." class="search-box" name="book-title" />
-      <div class="search-icon">
-        <ion-icon name="search-outline"></ion-icon>
-      </div>
-    </div>
-    <div class="book-container"></div>
   </section>
 
   <section class="cadastro_livro hidden">
@@ -208,15 +199,28 @@
         </div>
 
         <div class="wrap-input100 validate-input m-b-23">
-          <span class="label-input100">Edição</span>
+          <span class="label-input100">Edição:</span>
           <input class="input100" type="text" name="edicao" placeholder="Insira a edição do livro" />
           <span class="focus-input100" data-symbol="&#xf18d;"></span>
         </div>
 
         <div class="wrap-input100 validate-input m-b-23">
-          <span class="label-input100">Editora</span>
+          <span class="label-input100">Editora:</span>
           <input class="input100" type="text" name="editora" placeholder="Insira a editora do livro" />
           <span class="focus-input100" data-symbol="&#xf175;"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-23">
+          <span class="label-input100">Preço:</span>
+          <input class="input100" onkeypress="mascara(this,mreais)" name="valor" placeholder="Insira o valor do livro" />
+          <span class="focus-input100" data-symbol="&#xf198;"></span>
+        </div>
+
+
+        <div class="wrap-input100 validate-input m-b-23">
+          <span class="label-input100">Quantidade em Estoque:</span>
+          <input class="input100" type="number" min="1" name="quantidade" placeholder="Insira a quantidade em estoque do livro" />
+          <span class="focus-input100" data-symbol="&#xf1cd;"></span>
         </div>
 
 
@@ -253,7 +257,7 @@
     );
   ">
 <div class="wrap-consulta p-l-55 p-r-55 p-t-65 p-b-54">
-  <span class="login100-form-title p-b-49"> Consulta de Reservas</span>
+  <span class="login100-form-title p-b-49"> Vendas Realizadas</span>
 
   </div>
 </div>
@@ -309,6 +313,24 @@
   <div class="modal-container hidden">
 
   </div>
+  <script type="text/javascript">
+    function mascara(o, f) {
+        v_obj = o
+        v_fun = f
+        setTimeout("execmascara()", 1)
+    }
+
+    function execmascara() {
+        v_obj.value = v_fun(v_obj.value)
+    }
+
+    function mreais(v) {
+        v = v.replace(/\D/g, "") //Remove tudo o que não é dígito
+        v = v.replace(/(\d{2})$/, ",$1") //Coloca a virgula
+        v = v.replace(/(\d+)(\d{3},\d{2})$/g, "$1.$2") //Coloca o primeiro ponto
+        return v
+    }
+</script>
   <script type="module" src="script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
