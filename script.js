@@ -1,10 +1,9 @@
-const APP_URL = 'https://livraria-janeausten.herokuapp.com'
 const URL_LOCAL = "http://localhost:4000";
-const URL_LOGIN = `${URL_LOCAL}/signin`;
+const URL_LOGIN = ` ${URL_LOCAL}/signin`;
 const URL_SIGNUP = `${URL_LOCAL}/signup`;
 let books = [];
 
-function hideSection(hide, show, alsoHide, alsoHide2) {
+function hideSection(hide, show, alsoHide, alsoHide2, alsoHide3, alsoHide4) {
   if (alsoHide != null) {
     const section = document.querySelector(`.${alsoHide}`);
     section.classList.add("hidden");
@@ -13,39 +12,55 @@ function hideSection(hide, show, alsoHide, alsoHide2) {
     const section = document.querySelector(`.${alsoHide2}`);
     section.classList.add("hidden");
   }
+  if (alsoHide3 != null) {
+    const section = document.querySelector(`.${alsoHide3}`);
+    section.classList.add("hidden");
+  }
+  if (alsoHide4 != null) {
+    const section = document.querySelector(`.${alsoHide4}`);
+    section.classList.add("hidden");
+  }
   const sectionLogin = document.querySelector(`.${hide}`);
   sectionLogin.classList.add("hidden");
-  const sectionSign = document.querySelector(`.${show}`);
-  sectionSign.classList.remove("hidden");
+  const sectionShow = document.querySelector(`.${show}`);
+  sectionShow.classList.remove("hidden");
 }
 
 window.onload = () => {
   const loginBottom = document.querySelector("#login-bottom")
   loginBottom.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`login`, 'books','sobre')
-  })
-  const cadastroBottom = document.querySelector("#cadastro-bottom")
-  cadastroBottom.addEventListener("click", ()=>{
-    hideSection(`login`,`cadastro`, 'books','sobre')
+    hideSection(`cadastro`,`consulta`, 'books','sobre',`login`,`cadastro_livro`)
   })
 
-  const cadastroHeader = document.querySelector(".cadastro-header")
-  cadastroHeader.addEventListener("click", ()=>{
-    hideSection(`login`, `cadastro`, `books`,`sobre`)
+  const cadastroBottom = document.querySelector("#cadastro-bottom")
+  cadastroBottom.addEventListener("click", ()=>{
+    hideSection(`login`,`cadastro`, 'books','sobre',`consulta`,`cadastro_livro`)
   })
+
   const loginHeader = document.querySelector(".login-header")
   loginHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`, `login`, `books`,`sobre`)
+    hideSection(`cadastro`, `login`, `books`,`sobre`,`consulta`, `cadastro_livro`)
   })
-  const sobreHeader = document.querySelector(".sobre-header")
-  sobreHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`sobre`,`login`, `books`)
+
+  const cadastro_livroHeader = document.querySelector(".cadastro_livro-header")
+  cadastro_livroHeader.addEventListener("click", ()=>{
+    hideSection(`cadastro`,`cadastro_livro`,`login`, `books`,`sobre`,`consulta`)
   })
+
   const booksHeader = document.querySelector(".books-header")
   booksHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`books`,`login`, `sobre`)
+    hideSection(`cadastro`,`books`,`login`, `sobre`,`consulta`, `cadastro_livro`)
   })
-  
+
+  const consultaHeader = document.querySelector(".consulta-header")
+ consultaHeader.addEventListener("click", ()=>{
+    hideSection(`login`, `consulta`, `books`,`sobre`)
+  })
+
+  const sobreHeader = document.querySelector(".sobre-header")
+  sobreHeader.addEventListener("click", ()=>{
+    hideSection(`cadastro`,`sobre`,`login`, `books`, `cadastro_livro`, `consulta`)
+  })
   
   const loginBtn = document.querySelector("#log")
   loginBtn.addEventListener("click", ()=>{
@@ -62,12 +77,15 @@ window.onload = () => {
   const cadastroBtn = document.querySelector("#cad")
   cadastroBtn.addEventListener("click", ()=>{
     const pessoa = new Pessoa(
+      document.getElementsByName("email"),
       document.getElementsByName("username"),
       document.getElementsByName("pass"),
+      document.getElementsByName("telefone"),
       1
     );
     pessoa.chamada()
   })
+
   const searchBtn = document.querySelector(".search-icon")
   searchBtn.addEventListener("click", ()=>{
     const books = new Books()
@@ -76,9 +94,11 @@ window.onload = () => {
 };
 
 class Pessoa {
-  constructor(nome, senha, tipo) {
+  constructor(email, nome, senha, telefone, tipo) {
+    this.email = email[tipo].value;
     this.nome = nome[tipo].value;
     this.senha = senha[tipo].value;
+    this.telefone = telefone[tipo].value;
     this.tipo = tipo;
   }
 
@@ -108,7 +128,7 @@ class Pessoa {
   cadastro(screen) {
     let confirmPassword = this.senha[2].value;
     console.log("conf", confirmPassword)
-    const body = { name: this.nome, password: this.senha[this.tipo].value, confirmPassword };
+    const body = { email: this.email, name: this.nome, password: this.senha, confirmPassword, telefone: this.telefone};
     axios
       .post(URL_SIGNUP, body)
       .then((response) => {

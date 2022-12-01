@@ -157,6 +157,14 @@ iframe {
 
 }
 
+.wrap-consulta{
+  width: 1000px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+}
+
 
 /*------------------------------------------------------------------
 [ Form ]*/
