@@ -3,7 +3,7 @@ const URL_LOGIN = ` ${URL_LOCAL}/signin`;
 const URL_SIGNUP = `${URL_LOCAL}/signup`;
 let books = [];
 
-function hideSection(hide, show, alsoHide, alsoHide2, alsoHide3, alsoHide4) {
+function hideSection(hide, show, alsoHide, alsoHide2, alsoHide3, alsoHide4,alsoHide5) {
   if (alsoHide != null) {
     const section = document.querySelector(`.${alsoHide}`);
     section.classList.add("hidden");
@@ -20,6 +20,10 @@ function hideSection(hide, show, alsoHide, alsoHide2, alsoHide3, alsoHide4) {
     const section = document.querySelector(`.${alsoHide4}`);
     section.classList.add("hidden");
   }
+  if (alsoHide5 != null) {
+    const section = document.querySelector(`.${alsoHide5}`);
+    section.classList.add("hidden");
+  }
   const sectionLogin = document.querySelector(`.${hide}`);
   sectionLogin.classList.add("hidden");
   const sectionShow = document.querySelector(`.${show}`);
@@ -29,28 +33,44 @@ function hideSection(hide, show, alsoHide, alsoHide2, alsoHide3, alsoHide4) {
 window.onload = () => {
   const cadastroBottom = document.querySelector("#cadastro-bottom")
   cadastroBottom.addEventListener("click", ()=>{
-    hideSection(`login`,`cadastro`, 'books','sobre',`consulta`,`cadastro_livro`)
+    hideSection(`login`,`cadastro`, 'books','sobre',`carrinho`,`cadastro_livro`,`menu`)
+  })
+
+  const loginBottom = document.querySelector("#log")
+  loginBottom.addEventListener("click", ()=>{
+    hideSection(`login`,`menu`, 'books','sobre',`carrinho`,`cadastro_livro`,`cadastro`)
+  })
+
+  const adminBottom = document.querySelector("#admin")
+  adminBottom.addEventListener("click", ()=>{
+    hideSection(`login`,`cadastro_livro`, 'books','sobre',`carrinho`,`menu`,`cadastro`)
+  })
+
+  const clienteBottom = document.querySelector("#cliente")
+  clienteBottom.addEventListener("click", ()=>{
+    hideSection(`login`,`carrinho`, 'books','sobre',`cadastro_livro`,`menu`,`cadastro`)
   })
 
   const loginHeader = document.querySelector(".login-header")
   loginHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`, `login`, `books`,`sobre`,`consulta`, `cadastro_livro`)
+    hideSection(`cadastro`, `login`, `books`,`sobre`,`carrinho`, `cadastro_livro`,`menu`)
   })
 
-  const cadastro_livroHeader = document.querySelector(".cadastro_livro-header")
-  cadastro_livroHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`cadastro_livro`,`login`, `books`,`sobre`,`consulta`)
+  const cadastroHeader = document.querySelector(".cadastro-header")
+  cadastroHeader.addEventListener("click", ()=>{
+    hideSection(`cadastro_livro`,`cadastro`,`login`, `books`,`sobre`,`carrinho`,`menu`)
   })
 
   const booksHeader = document.querySelector(".books-header")
   booksHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`books`,`login`, `sobre`,`consulta`, `cadastro_livro`)
+    hideSection(`cadastro`,`books`,`login`, `sobre`,`carrinho`, `cadastro_livro`,`menu`)
   })
 
   const sobreHeader = document.querySelector(".sobre-header")
   sobreHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`sobre`,`login`, `books`, `cadastro_livro`, `consulta`)
+    hideSection(`cadastro`,`sobre`,`login`, `books`, `cadastro_livro`, `carrinho`,`menu`)
   })
+
   
   const loginBtn = document.querySelector("#log")
   loginBtn.addEventListener("click", ()=>{
@@ -70,7 +90,7 @@ window.onload = () => {
       document.getElementsByName("email"),
       document.getElementsByName("username"),
       document.getElementsByName("pass"),
-      document.getElementsByName("telefone"),
+      document.getElementsByName("tipouser"),
       1
     );
     pessoa.chamada()
@@ -88,6 +108,7 @@ window.onload = () => {
         document.getElementsByName("quantidade")
       );
       livro.chamada()
+
     })
   })
 
@@ -116,7 +137,7 @@ class Pessoa {
       .post(URL_LOGIN, body)
       .then((response) => {
         console.log("login")
-        hideSection(`cadastro`,`consulta`, 'books','sobre',`login`,`cadastro_livro`)
+        hideSection(`cadastro`,`menu`, 'books','sobre',`login`,`cadastro_livro`,`carrinho`)
       })
       .catch((err) => {
         alert(err.response.data);
@@ -127,11 +148,11 @@ class Pessoa {
   cadastro(screen) {
     let confirmPassword = this.senha[2].value;
     console.log("conf", confirmPassword)
-    const body = { email: this.email, name: this.nome, password: this.senha, confirmPassword, telefone: this.telefone};
+    const body = { email: this.email, name: this.nome, password: this.senha, confirmPassword, tipouser: this.tipouser};
     axios
       .post(URL_SIGNUP, body)
       .then((response) => {
-        hideSection(`cadastro`,`login`, 'books','sobre',`consulta`,`cadastro_livro`)
+        hideSection(`cadastro`,`login`, 'books','sobre',`carrinho`,`cadastro_livro`)
       })
       .catch((err) => {
         alert(err.response.data);
@@ -206,4 +227,3 @@ class Livro {
   }
   
 }
-
