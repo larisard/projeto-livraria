@@ -7,34 +7,39 @@ let books = [];
   const usuarioCadastrado3 = {username:"Usuario",password:"user123!", cpf:"13824396793"}
 
 
-function hideSection(hide, show, alsoHide) {
+function hideSection(hide, show, alsoHide, hideToo) {
   if (alsoHide != null) {
     const section = document.querySelector(`.${alsoHide}`);
     section.classList.add("hidden");
+  }
+  if (hideToo !=null){
+    const sectionMybooks = document.querySelector(`.${hideToo}`);
+    sectionMybooks.classList.add("hidden");
   }
   const sectionLogin = document.querySelector(`.${hide}`);
   sectionLogin.classList.add("hidden");
   const sectionSign = document.querySelector(`.${show}`);
   sectionSign.classList.remove("hidden");
+
 }
 
 window.onload = () => {
   const loginBottom = document.querySelector("#login-bottom")
   loginBottom.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`login`, 'books')
+    hideSection(`cadastro`,`login`, 'books', 'carrinho')
   })
   const cadastroBottom = document.querySelector("#cadastro-bottom")
   cadastroBottom.addEventListener("click", ()=>{
-    hideSection(`login`,`cadastro`, 'books')
+    hideSection(`login`,`cadastro`, 'books', 'carrinho')
   })
 
   const loginHeader = document.querySelector(".login-header")
   loginHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`, `login`, `books`)
+    hideSection(`cadastro`, `login`, `books`, 'carrinho')
   })
   const bookHeader = document.querySelector(".books-header")
   bookHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`, `books`, `login`)
+    hideSection(`cadastro`, `books`, `login`, 'carrinho')
   })
   const loginBtn = document.querySelector("#login-bottom")
   loginBtn.addEventListener("click", ()=>{
@@ -120,7 +125,7 @@ class Modal{
   constructor(){}
   openModal(description, cover) {
     const modal = document.querySelector(".modal-container");
-    hideSection("books", "modal-container", null);
+    hideSection("books", "modal-container", null, null);
     modal.classList.add("fade");
     modal.innerHTML = `
     <div class = "modal" id = "modal" >
@@ -134,27 +139,33 @@ class Modal{
     `;
     let carrinhoBtn = document.querySelector("#carrinho")
     carrinhoBtn.addEventListener("click", ()=>{
-        hideSection("modal-container", "carrinho", "books")
+        hideSection("modal-container", "carrinho", "books", 'login')
 
     })
     let btn = document.querySelector(".close-modal")
     btn.addEventListener("click", ()=>{
-      hideSection("modal-container", "books", null);
+      hideSection("modal-container", "books", null, null);
     })
   }
 
 }
+class MyBooks{
+    constructor(nome){
 
+    }
+
+
+}
 class Books {
   constructor(){
    
   }
   getBooks(screen) {
     if (screen == "cadastro") {
-      hideSection("cadastro", "login", "books");
+      hideSection("cadastro", "login", "books", 'carrinho');
       return;
     }
-    hideSection("login", "books", "books");
+    hideSection("login", "books", "books", null);
   }
   displayBooks() {
     let booktitleLast = "";
