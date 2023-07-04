@@ -1,8 +1,11 @@
 const URL_LOCAL = "http://localhost:4000";
 const URL_LOGIN = `${URL_LOCAL}/signin`;
 const URL_SIGNUP = `${URL_LOCAL}/signup`;
-const URL_GET_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=coraline";
 let books = [];
+  const usuarioCadastrado = {username:"Larissard",password:"lari123+", cpf:"13824396793"}
+  const usuarioCadastrado2 = {username:"Admin",password:"admin123!", cpf:"13824396793"}
+  const usuarioCadastrado3 = {username:"Usuario",password:"user123!", cpf:"13824396793"}
+
 
 function hideSection(hide, show, alsoHide) {
   if (alsoHide != null) {
@@ -51,14 +54,13 @@ window.onload = () => {
     );
     pessoa.chamada()
   })
-    const books = new Books()
-    books.displayBooks()
+   
 };
 
 class Pessoa {
   constructor(nome, senha, tipo) {
     this.nome = nome[tipo].value;
-    this.senha = senha;
+    this.senha = senha[tipo];
     this.tipo = tipo
   }
 
@@ -71,18 +73,29 @@ class Pessoa {
     }
   }
   login(screen) {
-    let email= "admin@gmail.com"
-    const body = { email, password:"admin" };
-    axios
-      .post(URL_LOGIN, body)
-      .then((response) => {
-        const books= new Books()
+
+    const user = { username : this.nome, password: this.senha.value};
+    console.log("no login, ", user, " senha ", this.senha, "  ", )
+    if(user.username==usuarioCadastrado.username && user.password==usuarioCadastrado.password ){
+        const books = new Books()
+        books.displayBooks()
         books.getBooks(screen)
-      })
-      .catch((err) => {
-        alert(err.response.data);
-        console.log(err.response);
-      });
+    }
+    else if(user.username==usuarioCadastrado2.username && user.password==usuarioCadastrado2.password){
+        const books = new Books()
+        books.displayBooks()
+        books.getBooks(screen)
+    }
+    else if(user.username==usuarioCadastrado3.username && user.password==usuarioCadastrado3.password){
+        const books = new Books()
+        books.displayBooks()
+        books.getBooks(screen)
+    }
+    else {
+    
+      alert("Usuário não cadastrado")
+    }
+
   }
   cadastro(screen) {
     let confirmPassword = "admin";
@@ -122,7 +135,7 @@ class Modal{
     let carrinhoBtn = document.querySelector("#carrinho")
     carrinhoBtn.addEventListener("click", ()=>{
         hideSection("modal-container", "carrinho", "books")
-        
+
     })
     let btn = document.querySelector(".close-modal")
     btn.addEventListener("click", ()=>{
@@ -144,15 +157,12 @@ class Books {
     hideSection("login", "books", "books");
   }
   displayBooks() {
-    const input = document.getElementsByName("book-title");
-    let booktitle = input[0].value;
     let booktitleLast = "";
     let bookBox = document.querySelector(".book-container");
-    this.callInput(booktitle, booktitleLast, bookBox);
+    this.callInput(bookBox);
   }
-  callInput(booktitle, booktitleLast, bookBox){
+  callInput(bookBox){
 
-    booktitle = booktitle.split(" ").join("+");
   
     axios
       .get(
