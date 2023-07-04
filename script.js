@@ -1,6 +1,7 @@
 const URL_LOCAL = "http://localhost:4000";
-const URL_LOGIN = ` ${URL_LOCAL}/signin`;
+const URL_LOGIN = `${URL_LOCAL}/signin`;
 const URL_SIGNUP = `${URL_LOCAL}/signup`;
+const URL_GET_BOOKS = "https://www.googleapis.com/books/v1/volumes?q=coraline";
 let books = [];
 
 function hideSection(hide, show, alsoHide) {
@@ -8,44 +9,31 @@ function hideSection(hide, show, alsoHide) {
     const section = document.querySelector(`.${alsoHide}`);
     section.classList.add("hidden");
   }
-
   const sectionLogin = document.querySelector(`.${hide}`);
   sectionLogin.classList.add("hidden");
-  const sectionShow = document.querySelector(`.${show}`);
-  sectionShow.classList.remove("hidden");
+  const sectionSign = document.querySelector(`.${show}`);
+  sectionSign.classList.remove("hidden");
+}
 
 window.onload = () => {
+  const loginBottom = document.querySelector("#login-bottom")
+  loginBottom.addEventListener("click", ()=>{
+    hideSection(`cadastro`,`login`, 'books')
+  })
   const cadastroBottom = document.querySelector("#cadastro-bottom")
   cadastroBottom.addEventListener("click", ()=>{
     hideSection(`login`,`cadastro`, 'books')
   })
 
-  const loginBottom = document.querySelector("#log")
-  loginBottom.addEventListener("click", ()=>{
-    hideSection(`login`,`menu`, 'books')
-  })
-
-
-
   const loginHeader = document.querySelector(".login-header")
   loginHeader.addEventListener("click", ()=>{
     hideSection(`cadastro`, `login`, `books`)
   })
-
-  const cadastroHeader = document.querySelector(".cadastro-header")
-  cadastroHeader.addEventListener("click", ()=>{
-    hideSection(`books`,`cadastro`,`login`)
+  const bookHeader = document.querySelector(".books-header")
+  bookHeader.addEventListener("click", ()=>{
+    hideSection(`cadastro`, `books`, `login`)
   })
-
-  const booksHeader = document.querySelector(".books-header")
-  booksHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`,`books`,`login`)
-  })
-
-
-}
-  
-  const loginBtn = document.querySelector("#log")
+  const loginBtn = document.querySelector("#login-bottom")
   loginBtn.addEventListener("click", ()=>{
     const pessoa = new Pessoa(
       document.getElementsByName("username"),
@@ -54,30 +42,24 @@ window.onload = () => {
     );
     pessoa.chamada()
   })
-
-
-
   const cadastroBtn = document.querySelector("#cad")
   cadastroBtn.addEventListener("click", ()=>{
     const pessoa = new Pessoa(
-      document.getElementsByName("email"),
       document.getElementsByName("username"),
       document.getElementsByName("pass"),
       1
     );
     pessoa.chamada()
-
-    
   })
-
+    const books = new Books()
+    books.displayBooks()
 };
 
 class Pessoa {
-  constructor(email, nome, senha, telefone) {
-    this.email = email[tipo].value;
+  constructor(nome, senha, tipo) {
     this.nome = nome[tipo].value;
-    this.senha = senha[tipo].value;
-    this.telefone = telefone[tipo].value;
+    this.senha = senha;
+    this.tipo = tipo
   }
 
 
@@ -89,27 +71,29 @@ class Pessoa {
     }
   }
   login(screen) {
-    const body = { name: this.nome, password: this.senha };
+    let email= "admin@gmail.com"
+    const body = { email, password:"admin" };
     axios
       .post(URL_LOGIN, body)
       .then((response) => {
-        console.log("login")
-        hideSection(`cadastro`,`books`, 'login',)
+        const books= new Books()
+        books.getBooks(screen)
       })
       .catch((err) => {
         alert(err.response.data);
         console.log(err.response);
-        console.log("login erro")
       });
   }
   cadastro(screen) {
-    let confirmPassword = this.senha[2].value;
-    console.log("conf", confirmPassword)
-    const body = { email: this.email, name: this.nome, password: this.senha, confirmPassword};
+    let confirmPassword = "admin";
+    let email= "admin@gmail.com"
+    console.log("conf", confirmPassword, " email ", email)
+    const body = { name: this.nome, email, password: "admin", confirmPassword };
     axios
       .post(URL_SIGNUP, body)
       .then((response) => {
-        hideSection(`cadastro`,`login`, 'books')
+        const books= new Books()
+        books.getBooks(screen)
       })
       .catch((err) => {
         alert(err.response.data);
@@ -118,22 +102,41 @@ class Pessoa {
   }
 }
 
-//tela de busca, precisa pegar livros já cadastrados e renderizar na tela
 
-
-class Livro {
-  constructor(isbn, titulo, autor, descricao, edicao, editora, valor, quantidade) {
-    this.isbn = isbn.value;
-    this.titulo = titulo.value;
-    this.autor = autor.value;
-    this.descricao = descricao.value;
-    this.edicao = edicao.value;
-    this.editora = editora.value;
-    this.valor = valor.value;
-    this.quantidade = quantidade.value
+class Modal{
+  constructor(){}
+  openModal(description, cover) {
+    const modal = document.querySelector(".modal-container");
+    hideSection("books", "modal-container", null);
+    modal.classList.add("fade");
+    modal.innerHTML = `
+    <div class = "modal" id = "modal" >
+    <img src = "${cover}" >
+    <p>
+    ${description}
+    </p>
+    <button class="close-modal">close</button>
+    <button class="close-modal" id="carrinho">carrinho</button>
+    </div>
+    `;
+    let carrinhoBtn = document.querySelector("#carrinho")
+    carrinhoBtn.addEventListener("click", ()=>{
+        hideSection("modal-container", "carrinho", "books")
+        
+    })
+    let btn = document.querySelector(".close-modal")
+    btn.addEventListener("click", ()=>{
+      hideSection("modal-container", "books", null);
+    })
   }
 
-  getBusca(screen) {
+}
+
+class Books {
+  constructor(){
+   
+  }
+  getBooks(screen) {
     if (screen == "cadastro") {
       hideSection("cadastro", "login", "books");
       return;
@@ -153,22 +156,25 @@ class Livro {
   
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${booktitle}&maxResults=20&startIndex=0`
+        `http://localhost:4000/allbooks`
       )
       .then((res) => {
-        books = res.data.items;
-        booktitleLast = booktitle;
-        this.renderbook(bookBox);
+        console.log(res.data)
+        books = res.data;
+        console.log(books)
+        this.renderbook(bookBox)
+        
       });
   }
   
   renderbook(bookBox) {
+    console.log(bookBox)
     bookBox.innerHTML = ``;
     for (let i = 0; i < books.length; i++) {
       bookBox.innerHTML += `
      <div class="book-single" >
-     <p><u> ${books[i].volumeInfo.title} </u></p>
-      <img  src="${books[i].volumeInfo.imageLinks.smallThumbnail}" alt="">
+     <p> ${books[i].titulo} </p>
+      <img  src="${books[i].capa}" alt="">
      </div>
       
     `; 
@@ -177,9 +183,9 @@ class Livro {
     let bookinho = document.querySelectorAll(".book-single")
     for (let i=0; i<books.length; i++){
      bookinho.item(i).addEventListener("click", ()=>{
-      modal.openModal(books[i].volumeInfo.description, books[i].volumeInfo.imageLinks.smallThumbnail)
+      modal.openModal(books[i].descricao, books[i].capa)
      })
-    }
+    } 
    
   }
   

@@ -51,7 +51,7 @@
 
         <div class="wrap-input100 validate-input m-b-23" data-validate="O nome do usuário é obrigatório">
           <span class="label-input100">Nome do Usuário:</span>
-          <input class="input100" name="username" placeholder="Insira o seu nome de usuário" />
+          <input class="input100" name="username" id="name" placeholder="Insira o seu nome de usuário" />
           <span class="focus-input100" data-symbol="&#xf206;"></span>
         </div>
 
@@ -71,7 +71,7 @@
           <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
 
-            <button id="log" class="login100-form-btn">
+            <button id="login-bottom" class="login100-form-btn">
               Login
             </button>
           </div>
@@ -147,8 +147,31 @@
       </div>
     </div>
   </section>
+  <section class="carrinho hidden" >
+    <div class="cart" >
 
+    </div>
+
+  </section>
   <section class="books hidden">
+    <!-- <div class="search-box" >  </div> -->
+    <div class="search">
+      <input
+        type="text"
+        placeholder="procure por um título"
+        class="search-box"
+        name="book-title"
+      />
+      <div class="search-icon" >
+        <ion-icon name="search-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="book-container"></div>
+  </section>
+  <div class="modal-container hidden">
+   
+  </div> 
+<!--   <section class="books hidden">
     <div class="container-login100" style="
     background-image: linear-gradient(
       to right top,
@@ -248,7 +271,7 @@
     </table>       
 </div>
 
-  </section>
+  </section> -->
 
 
 
@@ -297,7 +320,7 @@
         return v
     }
 </script>
-  <script type="module" src="script.js"></script>
+  <script src="./script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
