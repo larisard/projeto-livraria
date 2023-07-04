@@ -30,13 +30,8 @@
     <a href="index.html"><img class="logo" src="img/logo.png" alt="Página Inicial" /></a>
 
     <div class="header-right">
-      <a class="menu-header">Menu</a>
       <a class="login-header">Login</a>
-      <a class="cadastro-header">Cadastro</a>
-      <a class="cadastro_livro-header">Cadastro de Livros</a>
-      <a class="books-header"> Busca</a>
-      <a class="relatorio-header"> Relatórios</a>
-      <a class="sobre-header">Sobre</a>
+      <a class="books-header"> Livros </a>
     </div>
   </header>
 
@@ -77,7 +72,7 @@
             <div class="login100-form-bgbtn"></div>
 
             <button id="log" class="login100-form-btn">
-              Comprar
+              Login
             </button>
           </div>
         </div>
@@ -132,16 +127,6 @@
           <span class="focus-input100" data-symbol="&#xf190;"></span>
         </div>
 
-        <div class="wrap-input100 validate-input m-b-23">
-          <span class="label-input100">Tipo de Usuário:</span>
-          <input class="input100" type="text" name="tipouser" placeholder="Escolha uma opção" list="tipouser">
-          <datalist id="tipouser">
-          <option value="Cliente">Cliente</option>
-          <option value="Administrador">Administrador</option>
-        </input>
-        </div>
-
-
 
         <div class="text-right p-t-8 p-b-31">
           <a class="txt2"></a>
@@ -193,60 +178,71 @@
         </thead>
         <tbody>
         <tr>
-            <td>1244</td>
+            <td id="align"  >1244</td>
             <td>A revolução dos bichos</td>
             <td>George Orwell</td>
             <td>Uma das obras mais contundentes e influentes do século XX ganha nova e definitiva edição com projeto especial e ampla fortuna crítica. </td>
             <td>Campanhia das letras</td>
             <td>49°edição</td>
             <td>R$29,00</td>
-            <td>5</td>
-            <td> <button class="carrinho-btn">
-              Login
-            </button></td>
+            <td id="align"  >5</td>
+           <td> <button class="carrinho-btn">
+              +
+            </button> </td>
           </tr>
         <tr>
-          <td>5889</td>
+          <td id="align"  >5889</td>
           <td>Rampa</td>
           <td>Tany Zagury</td>
           <td>Rampa é um retrato em preto-e-branco da sociedade contemporânea, na qual a falta de dinheiro pode se transformar em uma prisão</td>
           <td>Record</td>
           <td>5°edição</td>
           <td>R$24,99</td>
-          <td>12</td>
+          <td id="align"  >12</td>
+          <td> <button class="carrinho-btn">
+            +
+          </button></td>
         </tr>
 
         <tr>
-          <td>2566</td>
+          <td id="align"  >2566</td>
           <td>Enclausurado</td>
           <td>Ian McEwan</td>
           <td>O narrador deste livro é nada menos do que um feto. Enclausurado na barriga da mãe, ele escuta os planos da progenitora para, em conluio com seu amante - que é também tio do bebê -, assassinar o marido</td>
           <td>Campanhia das letras</td>
           <td>6°edição</td>
           <td>R$36,80</td>
-          <td>8</td>
+          <td id="align"  >8</td> <td> <button class="carrinho-btn">
+            +
+          </button></td>
         </tr>
 
         <tr>
-          <td>8799</td>
+          <td id="align"  >8799</td>
           <td>Maquinas como eu e gente como vocês</td>
           <td>Ian McEwan</td>
           <td>Um romance impossível de largar, que antecipa de maneira perturbadora os conflitos éticos que podem nascer da relação entre humanos e androides. Do premiado autor de Reparação</td>
           <td>Campanhia das letras</td>
           <td>6°edição</td>
           <td>R$44,80</td>
-          <td>10</td>
+          <td id="align"  >10</td>
+          <td> <button class="carrinho-btn">
+            +
+          </button></td>
         </tr>
 
         <tr>
-          <td>5514</td>
+          <td id="align"  >5514</td>
           <td>Logo, logo</td>
           <td>kelly weinersmith</td>
           <td>O que será do amanhã? Como acontece o progresso? E, afinal, por que nós ainda não colonizamos a Lua?</td>
           <td>Intreseca</td>
           <td>2°edição</td>
           <td>R$60,80</td>
-          <td>3</td>
+          <td id="align" >3</td>
+          <td> <button class="carrinho-btn">
+            +
+          </button></td>
         </tr>
         </tbody>
     </table>       
@@ -254,90 +250,7 @@
 
   </section>
 
-  <section class="cadastro_livro hidden">
-    <div class="container-login100" style="
-    background-image: linear-gradient(
-      to right top,
-      #d7d688,
-      #efc685,
-      #fdb790,
-      #ffaba3,
-      #f6a5b8
-    );
-  ">
-      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-        <span class="login100-form-title p-b-49"> Cadastro de Livros </span>
 
-        <div class="wrap-input100 validate-input m-b-23" data-validate="O código ISBN é obrigatório">
-          <span class="label-input100">Código ISBN:</span>
-          <input class="input100" type="text" name="isbn" placeholder="Insira o código" />
-          <span class="focus-input100" data-symbol="&#xf3d4;"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input m-b-23" data-validate="O nome do livro é obrigatório">
-          <span class="label-input100">Título:</span>
-          <input class="input100" type="text" name="titulo" placeholder="Insira o título do livro" />
-          <span class="focus-input100" data-symbol="&#xf11b;"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input m-b-23" data-validate="O nome do autor é obrigatório">
-          <span class="label-input100">Autor:</span>
-          <input class="input100" type="text" name="autor" placeholder="Insira o nome do autor" />
-          <span class="focus-input100" data-symbol="&#xf206;"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input m-b-23">
-          <span class="label-input100">Descrição:</span>
-          <input class="input100" type="textarea" name="descricao" placeholder="Insira a descrição do livro" />
-          <span class="focus-input100" data-symbol="&#xf150;"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input m-b-23">
-          <span class="label-input100">Edição:</span>
-          <input class="input100" type="text" name="edicao" placeholder="Insira a edição do livro" />
-          <span class="focus-input100" data-symbol="&#xf18d;"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input m-b-23">
-          <span class="label-input100">Editora:</span>
-          <input class="input100" type="text" name="editora" placeholder="Insira a editora do livro" />
-          <span class="focus-input100" data-symbol="&#xf175;"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input m-b-23">
-          <span class="label-input100">Preço:</span>
-          <input class="input100" onkeypress="mascara(this,mreais)" name="valor" placeholder="Insira o valor do livro" />
-          <span class="focus-input100" data-symbol="&#xf198;"></span>
-        </div>
-
-
-        <div class="wrap-input100 validate-input m-b-23">
-          <span class="label-input100">Quantidade em Estoque:</span>
-          <input class="input100" type="number" min="1" name="quantidade" placeholder="Insira a quantidade em estoque do livro" />
-          <span class="focus-input100" data-symbol="&#xf1cd;"></span>
-        </div>
-
-
-        <div class="text-right p-t-8 p-b-31">
-          <a class="txt2"></a>
-        </div>
-
-        <div class="container-login100-form-btn">
-          <div class="wrap-login100-form-btn">
-            <div class="login100-form-bgbtn"></div>
-
-            <button id="cad-book" class="login100-form-btn">
-              Cadastrar Livro
-            </button>
-          </div>
-        </div>
-
-        <div id="buttonDiv"></div>
-
-      </div>
-    </div>
-
-  </section>
 
   <section class="carrinho hidden">
     <div class="container-login100" style="
@@ -358,100 +271,9 @@
 
   </section>
 
-  <section class="sobre hidden">
-    <div class="container-login100" style="
-          background-image: linear-gradient(
-            to right top,
-            #d7d688,
-            #efc685,
-            #fdb790,
-            #ffaba3,
-            #f6a5b8
-          );
-        ">
-      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54" id="sobre" >
-        <div class="about">
-          <span class="login100-form-title p-b-49"> Sobre </span>
-          <p id="titulo">Autores</p>
-          <br>
-          <p>Aluna: Larissa Ribeiro Sardinha</p>
-          <p>Professor: Ausberto S. Castro Vera</p>
-          <br>
-          <img src="img/CC-UENF.png">
+ 
 
-
-          <br>
-
-          <p id="instituicao">UENF - Universidade Estadual do Norte Fluminense Darcy Ribeiro</p>
-          <p id="instituicao">CCT - Centro de Ciência e Tecnologia</p>
-          <p id="instituicao">LCMAT - Laboratório de Matemáticas</p>
-          <p id="instituicao">CC - Curso de Ciência da Computação</p>
-          <br>
-          <p id="titulo">O projeto</p>
-          <br>
-          <p id="text">O site da Livraria Jane Austen foi desenvolvido 
-            com o intuito de treinar e explorar os conhecimentos obtidos durante 
-            a disciplina de Paradigma Orientado a Objetos, aplicando os conceitos aprendidos. 
-            O site possui fins puramente educacionais. 
-          </p>
-          <br>
-          <p id="instituicao"><a href="doc/Larissa-POODS.pdf" target="_blank">Manual do Usuário</p>
-          <br>
-          <p id="titulo">Versão: 1.0</p>
-        </div>
-
-      </div>
-  </section>
-
-  <section class="menu hidden">
-    <div class="container-login100" style="
-          background-image: linear-gradient(
-            to right top,
-            #d7d688,
-            #efc685,
-            #fdb790,
-            #ffaba3,
-            #f6a5b8
-          );
-        ">
-      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54" id="menu" >
-          <span class="login100-form-title p-b-49"> Menu </span>
-
-          <div class="text-right p-t-8 p-b-31"></div>
-
-          <div class="container-login100-form-btn">
-            <div class="wrap-login100-form-btn">
-              <div class="login100-form-bgbtn"></div>
-  
-              <button id="admin" class="login100-form-btn">
-                Administrador
-              </button>
-            </div>
-          </div>
-
-          <div class="text-right p-t-8 p-b-31"></div>
-          <div class="container-login100-form-btn">
-            <div class="wrap-login100-form-btn">
-              <div class="login100-form-bgbtn"></div>
-  
-              <button id="cliente" class="login100-form-btn">
-                Cliente
-              </button>
-            </div>
-          </div>
-          <div class="text-right p-t-8 p-b-31"></div>
-          <div class="container-login100-form-btn">
-            <div class="wrap-login100-form-btn">
-              <div class="login100-form-bgbtn"></div>
-  
-              <button id="Atendimento ao cliente" class="login100-form-btn">
-                Atendimento ao Cliente
-              </button>
-            </div>
-          </div>
-
-      </div>
-  </section>
+ 
 
 
   <div class="modal-container hidden">

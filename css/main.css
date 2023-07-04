@@ -105,6 +105,34 @@ iframe {
 	border: none !important;
 }
 
+.dados{
+  align-items: center;
+  /* background-color: #333333; */
+}
+
+table, th, td{
+  border:  1px solid #444;
+  border-radius: 12px;
+  border-collapse: collapse;
+  padding: 5px;
+  color: #333333;
+}
+.carrinho-btn{
+  background-color:#F6A5B8;;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 50px;
+  height: 50px;
+ color: #333333;
+}
+th{
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#align{
+  text-align: center;
+}
+
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
@@ -122,7 +150,7 @@ iframe {
   text-transform: uppercase;
 }
 
-.dados{
+.table{
   align-items: center;
 }
 
