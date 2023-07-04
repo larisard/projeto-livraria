@@ -1,42 +1,44 @@
+
 <html lang="pt-br">
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/util.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <title>Login</title>
+    <link rel="manifest" href="img/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Livraria Jane Austen</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body >
+    <header class="header-books">
+      <a href="index.html"
+        ><img class="logo" src="img/logo.png" alt="Página Inicial"
+      /></a>
 
+      <div class="header-right">
+        <a
+          class="login-header"
+          >Login</a
+        >
+        <a
+          class="cadastro-header"
+          >Cadastro</a
+        >
+       
+        <a class="sobre" href="sobre.html">Sobre</a>
+      </div>
+    </header>
 
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-  <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/util.css" />
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="manifest" href="img/manifest.json" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png" />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
-  <title>Livraria Jane Austen</title>
-  <link rel="stylesheet" href="index.css" />
-
-
-</head>
-
-<body>
-  <header class="header-books">
-    <a href="index.html"><img class="logo" src="img/logo.png" alt="Página Inicial" /></a>
-
-    <div class="header-right">
-      <a class="login-header">Login</a>
-      <a class="books-header"> Livros </a>
-    </div>
-  </header>
-
-  <section class="login">
-    <div class="container-login100" style="
+    <section class="login">
+      <div
+        class="container-login100"
+        style="
           background-image: linear-gradient(
             to right top,
             #d7d688,
@@ -45,261 +47,171 @@
             #ffaba3,
             #f6a5b8
           );
-        ">
-      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-        <span class="login100-form-title p-b-49"> Login </span>
+        "
+      >
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+          <span class="login100-form-title p-b-49"> Login </span>
 
-        <div class="wrap-input100 validate-input m-b-23" data-validate="O nome do usuário é obrigatório">
-          <span class="label-input100">Nome do Usuário:</span>
-          <input class="input100" name="username" placeholder="Insira o seu nome de usuário" />
-          <span class="focus-input100" data-symbol="&#xf206;"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input" data-validate="A senha é obrigatória">
-          <span class="label-input100">Senha:</span>
-          <input class="input100" type="password" name="pass" placeholder="Insira sua senha" />
-          <span class="focus-input100" data-symbol="&#xf190;"></span>
-        </div>
-        <div class="forget">
-        <a id="redefinir-bottom">
-          Esqueceu a senha?
-        </a>
-      </div>
-        <div class="text-right p-t-8 p-b-31"></div>
-
-        <div class="container-login100-form-btn">
-          <div class="wrap-login100-form-btn">
-            <div class="login100-form-bgbtn"></div>
-
-            <button id="log" class="login100-form-btn">
-              Login
-            </button>
+          <div
+            class="wrap-input100 validate-input m-b-23"
+            data-validate="O nome do usuário é obrigatório"
+          >
+            <span class="label-input100">Nome do Usuário</span>
+            <input
+              class="input100"
+              name="username"
+              placeholder="Insira o seu nome de usuário"
+            />
+            <span class="focus-input100" data-symbol="&#xf206;"></span>
           </div>
-        </div>
 
-        <div id="buttonDiv"></div>
+          <div
+            class="wrap-input100 validate-input"
+            data-validate="A senha é obrigatória"
+          >
+            <span class="label-input100">Senha</span>
+            <input
+              class="input100"
+              type="password"
+              name="pass"
+              placeholder="Insira sua senha"
+            />
+            <span class="focus-input100" data-symbol="&#xf190;"></span>
+          </div>
 
-        <div class="flex-col-c p-t-155">
-          <span class="txt1 p-b-17"> Ainda não possui cadastro? </span>
+          <div class="text-right p-t-8 p-b-31"></div>
 
-          <a id="cadastro-bottom" class="txt2">
-            Cadastre-se
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
 
-  <section class="cadastro hidden">
-    <div class="container-login100" style="
-          background-image: linear-gradient(
-            to right top,
-            #d7d688,
-            #efc685,
-            #fdb790,
-            #ffaba3,
-            #f6a5b8
-          );
-        ">
-      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-        <span class="login100-form-title p-b-49"> Cadastro de Usuário </span>
+              <button id="log" class="login100-form-btn">
+                Login
+              </button>
+            </div>
+          </div>
 
-        <div class="wrap-input100 validate-input m-b-23" data-validate="O e-mail é obrigatório">
-          <span class="label-input100">E-mail:</span>
-          <input class="input100" type="text" name="email" placeholder="Insira um e-mail" />
-          <span class="focus-input100" data-symbol="&#xf15a;"></span>
-        </div>
-        <div class="wrap-input100 validate-input m-b-23" data-validate="O nome do usuário é obrigatório">
-          <span class="label-input100">Nome do Usuário:</span>
-          <input class="input100" type="text" name="username" placeholder="Insira o seu nome de usuário" />
-          <span class="focus-input100" data-symbol="&#xf206;"></span>
-        </div>
+          <div id="buttonDiv"></div>
 
-        <div class="wrap-input100 validate-input m-b-23" data-validate="A senha é obrigatória">
-          <span class="label-input100">Senha:</span>
-          <input class="input100" type="password" name="pass" placeholder="Insira sua senha" />
-          <span class="focus-input100" data-symbol="&#xf190;"></span>
-        </div>
+          <div class="flex-col-c p-t-155">
+            <span class="txt1 p-b-17"> Ainda não possui cadastro? </span>
 
-        <div class="wrap-input100 validate-input m-b-23" data-validate="A senha é obrigatória">
-          <span class="label-input100">Confirmar Senha:</span>
-          <input class="input100" type="password" name="pass" placeholder="Insira sua senha" />
-          <span class="focus-input100" data-symbol="&#xf190;"></span>
-        </div>
-
-
-        <div class="text-right p-t-8 p-b-31">
-          <a class="txt2"></a>
-        </div>
-
-        <div class="container-login100-form-btn">
-          <div class="wrap-login100-form-btn">
-            <div class="login100-form-bgbtn"></div>
-
-            <button id="cad" class="login100-form-btn">
+            <a id="cadastro-bottom" class="txt2">
               Cadastre-se
-            </button>
+            </a>
           </div>
         </div>
-
-        <div id="buttonDiv"></div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="books hidden">
-    <div class="container-login100" style="
-    background-image: linear-gradient(
-      to right top,
-      #d7d688,
-      #efc685,
-      #fdb790,
-      #ffaba3,
-      #f6a5b8
-    );
-  ">
-<div class="wrap-livro p-l-55 p-r-55 p-t-65 p-b-54">
-  <span class="login100-form-title p-b-49"> Livros </span>
-  <div class="container">
-    <table>
-        <thead class="dados">
-          <tr>
-            <th>Código ISBN</th>
-            <th>Título</th>
-            <th>Autor(a)</th>
-            <th>Descrição</th>
-            <th>Edição</th>
-            <th>Editora</th>
-            <th>Preço</th>
-            <th>Quantidade em estoque</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td id="align"  >1244</td>
-            <td>A revolução dos bichos</td>
-            <td>George Orwell</td>
-            <td>Uma das obras mais contundentes e influentes do século XX ganha nova e definitiva edição com projeto especial e ampla fortuna crítica. </td>
-            <td>Campanhia das letras</td>
-            <td>49°edição</td>
-            <td>R$29,00</td>
-            <td id="align"  >5</td>
-           <td> <button class="carrinho-btn">
-              +
-            </button> </td>
-          </tr>
-        <tr>
-          <td id="align"  >5889</td>
-          <td>Rampa</td>
-          <td>Tany Zagury</td>
-          <td>Rampa é um retrato em preto-e-branco da sociedade contemporânea, na qual a falta de dinheiro pode se transformar em uma prisão</td>
-          <td>Record</td>
-          <td>5°edição</td>
-          <td>R$24,99</td>
-          <td id="align"  >12</td>
-          <td> <button class="carrinho-btn">
-            +
-          </button></td>
-        </tr>
+    <section class="cadastro hidden">
+      <div
+        class="container-login100"
+        style="
+          background-image: linear-gradient(
+            to right top,
+            #d7d688,
+            #efc685,
+            #fdb790,
+            #ffaba3,
+            #f6a5b8
+          );
+        "
+      >
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+          <span class="login100-form-title p-b-49"> SignUp </span>
 
-        <tr>
-          <td id="align"  >2566</td>
-          <td>Enclausurado</td>
-          <td>Ian McEwan</td>
-          <td>O narrador deste livro é nada menos do que um feto. Enclausurado na barriga da mãe, ele escuta os planos da progenitora para, em conluio com seu amante - que é também tio do bebê -, assassinar o marido</td>
-          <td>Campanhia das letras</td>
-          <td>6°edição</td>
-          <td>R$36,80</td>
-          <td id="align"  >8</td> <td> <button class="carrinho-btn">
-            +
-          </button></td>
-        </tr>
+          <div
+            class="wrap-input100 validate-input m-b-23"
+            data-validate="O nome do usuário é obrigatório"
+          >
+            <span class="label-input100">Nome do Usuário</span>
+            <input
+              class="input100"
+              type="text"
+              name="username"
+              placeholder="Insira o seu nome de usuário"
+            />
+            <span class="focus-input100" data-symbol="&#xf206;"></span>
+          </div>
 
-        <tr>
-          <td id="align"  >8799</td>
-          <td>Maquinas como eu e gente como vocês</td>
-          <td>Ian McEwan</td>
-          <td>Um romance impossível de largar, que antecipa de maneira perturbadora os conflitos éticos que podem nascer da relação entre humanos e androides. Do premiado autor de Reparação</td>
-          <td>Campanhia das letras</td>
-          <td>6°edição</td>
-          <td>R$44,80</td>
-          <td id="align"  >10</td>
-          <td> <button class="carrinho-btn">
-            +
-          </button></td>
-        </tr>
+          <div
+            class="wrap-input100 validate-input"
+            data-validate="A senha é obrigatória"
+          >
+            <span class="label-input100">Senha</span>
+            <input
+              class="input100"
+              type="password"
+              name="pass"
+              placeholder="Insira sua senha"
+            />
+            <span class="focus-input100" data-symbol="&#xf190;"></span>
+          </div>
 
-        <tr>
-          <td id="align"  >5514</td>
-          <td>Logo, logo</td>
-          <td>kelly weinersmith</td>
-          <td>O que será do amanhã? Como acontece o progresso? E, afinal, por que nós ainda não colonizamos a Lua?</td>
-          <td>Intreseca</td>
-          <td>2°edição</td>
-          <td>R$60,80</td>
-          <td id="align" >3</td>
-          <td> <button class="carrinho-btn">
-            +
-          </button></td>
-        </tr>
-        </tbody>
-    </table>       
-</div>
+          <div
+            class="wrap-input100 validate-input"
+            data-validate="A senha é obrigatória"
+          >
+            <span class="label-input100">Confirmar Senha</span>
+            <input
+              class="input100"
+              type="password"
+              name="pass"
+              placeholder="Insira sua senha"
+            />
+            <span class="focus-input100" data-symbol="&#xf190;"></span>
+          </div>
 
-  </section>
+          <div class="text-right p-t-8 p-b-31">
+            <a class="txt2"></a>
+          </div>
 
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
 
+              <button id="cad" class="login100-form-btn">
+                SignUp
+              </button>
+            </div>
+          </div>
 
-  <section class="carrinho hidden">
-    <div class="container-login100" style="
-    background-image: linear-gradient(
-      to right top,
-      #d7d688,
-      #efc685,
-      #fdb790,
-      #ffaba3,
-      #f6a5b8
-    );
-  ">
-<div class="wrap-consulta p-l-55 p-r-55 p-t-65 p-b-54">
-  <span class="login100-form-title p-b-49"> Carrinho </span>
+          <div id="buttonDiv"></div>
 
-  </div>
-</div>
+          <div class="flex-col-c p-t-155">
+            <span class="txt1 p-b-17">Já possui cadastro? </span>
 
-  </section>
-
- 
-
- 
-
-
-  <div class="modal-container hidden">
-
-  </div>
-  <script type="text/javascript">
-    function mascara(o, f) {
-        v_obj = o
-        v_fun = f
-        setTimeout("execmascara()", 1)
-    }
-
-    function execmascara() {
-        v_obj.value = v_fun(v_obj.value)
-    }
-
-    function mreais(v) {
-        v = v.replace(/\D/g, "") //Remove tudo o que não é dígito
-        v = v.replace(/(\d{2})$/, ",$1") //Coloca a virgula
-        v = v.replace(/(\d+)(\d{3},\d{2})$/g, "$1.$2") //Coloca o primeiro ponto
-        return v
-    }
-</script>
-  <script type="module" src="script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</body>
-
+            <a id="login-bottom" class="txt2">
+              Entre
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="books hidden">
+      <!-- <div class="search-box" >  </div> -->
+      <div class="search">
+        <input
+          type="text"
+          placeholder="procure por um título"
+          class="search-box"
+          name="book-title"
+        />
+        <div class="search-icon" >
+          <ion-icon name="search-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="book-container"></div>
+    </section>
+    <div class="modal-container hidden">
+     
+    </div> 
+    <script type="module" src="sc.js"></script>
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-const URL_LOCAL = "http://localhost:4000";
+const URL_LOCAL = "http://localhost:8080";
 const URL_LOGIN = ` ${URL_LOCAL}/signin`;
 const URL_SIGNUP = `${URL_LOCAL}/signup`;
 let books = [];
@@ -18,6 +18,7 @@ window.onload = () => {
   const cadastroBottom = document.querySelector("#cadastro-bottom")
   cadastroBottom.addEventListener("click", ()=>{
     hideSection(`login`,`cadastro`, 'books')
+    console.log("hello")
   })
 
   const loginBottom = document.querySelector("#log")
