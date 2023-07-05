@@ -144,8 +144,8 @@ class Modal{
     <p>
     ${description}
     </p>
-    <button class="close-modal">close</button>
-    <button class="close-modal" id="carrinho">add</button>
+    <button class="close-modal">x</button>
+    <button class="close-modal" id="carrinho">+</button>
     </div>
     `;
     let carrinhoBtn = document.querySelector("#carrinho")
