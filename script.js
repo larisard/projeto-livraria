@@ -50,7 +50,7 @@ window.onload = () => {
   })
   const bookHeader = document.querySelector(".books-header")
   bookHeader.addEventListener("click", ()=>{
-    hideSection(`cadastro`, `books`, `login`, 'carrinho')
+    hideSection(`cadastro`, `books`, `login`, 'myBook-container')
   })
   const loginBtn = document.querySelector("#login-bottom")
   loginBtn.addEventListener("click", ()=>{
