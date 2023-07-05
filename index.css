@@ -228,6 +228,7 @@ header{
   align-items: center;
 }
 .mybooks img{
-  width: 15px;
-  height: 30px;
+  width: 20px;
+  height: 35px;
+  cursor: pointer;
 }

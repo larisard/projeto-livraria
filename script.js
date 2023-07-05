@@ -14,7 +14,9 @@ function deleteBook(index){
     if (index > -1) {
         myListBooks.splice(index, 1);
       }
-    
+      let name = myListBooks[index]
+      let estante = new MyBooks(name)
+        estante.displayBooks()
 }
 function hideSection(hide, show, alsoHide, hideToo) {
   if (alsoHide != null) {
@@ -179,7 +181,7 @@ class MyBooks{
           booklist.innerHTML += `
          <div class="mybooks" >
          <p> ${myListBooks[i]} </p>
-         <img onclick="deleteBook(${i})" src="./img/delete.png" alt="">
+         <img onclick="deleteBook(${i})" src="img/trash-outline (1).svg" alt="">
          </div>
           
         `; 
