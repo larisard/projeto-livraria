@@ -9,10 +9,8 @@ let myListBooks = []
 
 function addBook(name){
     myListBooks.push(name)
-    console.log(myListBooks[0])
 }
-function deleteBook(index, name){
-    console.log("hellooooo", name)
+function deleteBook(index){
     if (index > -1) {
         myListBooks.splice(index, 1);
       }
@@ -181,7 +179,7 @@ class MyBooks{
           booklist.innerHTML += `
          <div class="mybooks" >
          <p> ${myListBooks[i]} </p>
-         <img onclick="deleteBook(${i,this.nome})" src="./img/delete.png" alt="">
+         <img onclick="deleteBook(${i})" src="./img/delete.png" alt="">
          </div>
           
         `; 
