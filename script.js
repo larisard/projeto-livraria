@@ -3,16 +3,20 @@ const URL_LOGIN = `${URL_LOCAL}/signin`;
 const URL_SIGNUP = `${URL_LOCAL}/signup`;
 let books = [];
 let myListBooks = []
-  const usuarioCadastrado = {username:"Larissard",password:"lari123+", cpf:"13824396793"}
-  const usuarioCadastrado2 = {username:"Admin",password:"admin123!", cpf:"13824396793"}
-  const usuarioCadastrado3 = {username:"Usuario",password:"user123!", cpf:"13824396793"}
+  const usuarioCadastrado = {username:"Larissard",password:"lari123+"}
+  const usuarioCadastrado2 = {username:"Admin",password:"admin123!"}
+  const usuarioCadastrado3 = {username:"Usuario",password:"user123!"}
 
 function addBook(name){
     myListBooks.push(name)
     console.log(myListBooks[0])
 }
-function deleteBook(){
-
+function deleteBook(index, name){
+    console.log("hellooooo", name)
+    if (index > -1) {
+        myListBooks.splice(index, 1);
+      }
+    
 }
 function hideSection(hide, show, alsoHide, hideToo) {
   if (alsoHide != null) {
@@ -141,7 +145,7 @@ class Modal{
     ${description}
     </p>
     <button class="close-modal">close</button>
-    <button class="close-modal" id="carrinho">carrinho</button>
+    <button class="close-modal" id="carrinho">add</button>
     </div>
     `;
     let carrinhoBtn = document.querySelector("#carrinho")
@@ -169,9 +173,7 @@ class MyBooks{
     this.myBookList(bookBox);
    
     }
-    callInput(){
-        
-    }
+   
     myBookList(booklist){
         
         booklist.innerHTML = ``;
@@ -179,7 +181,7 @@ class MyBooks{
           booklist.innerHTML += `
          <div class="mybooks" >
          <p> ${myListBooks[i]} </p>
-          
+         <img onclick="deleteBook(${i,this.nome})" src="./img/delete.png" alt="">
          </div>
           
         `; 

@@ -169,6 +169,7 @@ header{
 
   width: 40px;
   height: 20px;
+  margin-right: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,7 +216,7 @@ header{
 }
 .mybooks{
   width: 600px;
- height: 80px;
+  height: 80px;
   padding-bottom: 10px;
   background-color: #fff;
   margin:5px 5px;
@@ -223,6 +224,10 @@ header{
   border: rgba(59, 58, 58, 0.4) solid 1px;
   border-radius: 8px;
   display: flex;
-  justify-content: center;
-  align-items: start;
+  justify-content: space-around;
+  align-items: center;
+}
+.mybooks img{
+  width: 15px;
+  height: 30px;
 }
