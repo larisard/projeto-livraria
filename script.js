@@ -2,11 +2,18 @@ const URL_LOCAL = "http://localhost:4000";
 const URL_LOGIN = `${URL_LOCAL}/signin`;
 const URL_SIGNUP = `${URL_LOCAL}/signup`;
 let books = [];
+let myListBooks = []
   const usuarioCadastrado = {username:"Larissard",password:"lari123+", cpf:"13824396793"}
   const usuarioCadastrado2 = {username:"Admin",password:"admin123!", cpf:"13824396793"}
   const usuarioCadastrado3 = {username:"Usuario",password:"user123!", cpf:"13824396793"}
 
+function addBook(name){
+    myListBooks.push(name)
+    console.log(myListBooks[0])
+}
+function deleteBook(){
 
+}
 function hideSection(hide, show, alsoHide, hideToo) {
   if (alsoHide != null) {
     const section = document.querySelector(`.${alsoHide}`);
@@ -123,7 +130,7 @@ class Pessoa {
 
 class Modal{
   constructor(){}
-  openModal(description, cover) {
+  openModal(description, cover, name) {
     const modal = document.querySelector(".modal-container");
     hideSection("books", "modal-container", null, null);
     modal.classList.add("fade");
@@ -139,11 +146,15 @@ class Modal{
     `;
     let carrinhoBtn = document.querySelector("#carrinho")
     carrinhoBtn.addEventListener("click", ()=>{
-        hideSection("modal-container", "carrinho", "books", 'login')
+        addBook(name)
+        hideSection("modal-container", "myBook-container", "books", "login");
+        let estante = new MyBooks(name)
+        estante.displayBooks()
 
     })
     let btn = document.querySelector(".close-modal")
     btn.addEventListener("click", ()=>{
+     
       hideSection("modal-container", "books", null, null);
     })
   }
@@ -151,9 +162,29 @@ class Modal{
 }
 class MyBooks{
     constructor(nome){
-
+        this.nome = nome;
     }
-
+    displayBooks(){
+    let bookBox = document.querySelector(".myBook-container");
+    this.myBookList(bookBox);
+   
+    }
+    callInput(){
+        
+    }
+    myBookList(booklist){
+        
+        booklist.innerHTML = ``;
+        for (let i = 0; i < myListBooks.length; i++) {
+          booklist.innerHTML += `
+         <div class="mybooks" >
+         <p> ${myListBooks[i]} </p>
+          
+         </div>
+          
+        `; 
+        }
+    }
 
 }
 class Books {
@@ -204,7 +235,7 @@ class Books {
     let bookinho = document.querySelectorAll(".book-single")
     for (let i=0; i<books.length; i++){
      bookinho.item(i).addEventListener("click", ()=>{
-      modal.openModal(books[i].descricao, books[i].capa)
+      modal.openModal(books[i].descricao, books[i].capa, books[i].titulo)
      })
     } 
    
